@@ -7,6 +7,7 @@ public class clock_counting_time : MonoBehaviour
 {
     // объекты
     public GameObject clock;
+    public GameObject sun;
     public Camera main_camera;
     public Camera finish_night_camera;
     public TextMesh time;
@@ -24,9 +25,9 @@ public class clock_counting_time : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(seconds_have_passed);
         if (!pm.Is_game_end)
         {
+            sun.transform.Rotate(0.195f * Time.deltaTime, 0, 0);
             seconds_have_passed += Time.deltaTime;
             if (seconds_have_passed >= 60)
             {
