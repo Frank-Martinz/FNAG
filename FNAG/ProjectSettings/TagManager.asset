@@ -8,6 +8,7 @@ TagManager:
   - bed
   - savezone
   - danger zone
+  - closet
   layers:
   - Default
   - TransparentFX

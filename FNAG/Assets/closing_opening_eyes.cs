@@ -11,16 +11,19 @@ public class closing_opening_eyes : MonoBehaviour
     public player_movement pm;
     void Update()
     {
-        alfa += step;
-        if (alfa <= 0 || alfa >= 1)
+        if (!pm.is_game_paused)
         {
-            step = 0;
-            if (alfa <= 0) {alfa = 0;}
-            else {alfa = 1;}
+            alfa += step;
+            if (alfa <= 0 || alfa >= 1)
+            {
+                step = 0;
+                if (alfa <= 0) {alfa = 0;}
+                else {alfa = 1;}
+            }
+            if (pm.on_bed && pm.near_by_bed && !pm.Is_game_end) {CloseEyes();}
+            else if (!pm.on_bed && pm.near_by_bed && !pm.Is_game_end) {OpenEyes();}
+            eyes.color = new Color(0, 0, 0, alfa);
         }
-        if (pm.on_bed && pm.near_by_bed && !pm.Is_game_end) {CloseEyes();}
-        else if (!pm.on_bed && pm.near_by_bed && !pm.Is_game_end) {OpenEyes();}
-        eyes.color = new Color(0, 0, 0, alfa);
     }
     void OpenEyes()
     {   

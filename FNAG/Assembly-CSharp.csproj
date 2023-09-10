@@ -40,16 +40,31 @@
     <Analyzer Include="F:\unity\2022.3.3f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Buttons_scripts\return_to_all_settings.cs" />
      <Compile Include="Assets\Shadow_from_the_closet.cs" />
+     <Compile Include="Assets\Buttons_scripts\show_custom_night_set.cs" />
      <Compile Include="Assets\draw_ray_cast.cs" />
+     <Compile Include="Assets\setup_main_menu.cs" />
+     <Compile Include="Assets\Buttons_scripts\open_close_settings.cs" />
+     <Compile Include="Assets\Buttons_scripts\loading_a_scenes.cs" />
      <Compile Include="Assets\player_movement.cs" />
+     <Compile Include="Assets\Buttons_scripts\open_close_settings_in_game.cs" />
+     <Compile Include="Assets\Buttons_scripts\setup_game_script.cs" />
+     <Compile Include="Assets\Buttons_scripts\apply_in_game.cs" />
      <Compile Include="Assets\shadow_movement.cs" />
      <Compile Include="Assets\play_switcher_audio.cs" />
      <Compile Include="Assets\closing_opening_eyes.cs" />
+     <Compile Include="Assets\Buttons_scripts\exit_from_the_game.cs" />
      <Compile Include="Assets\open_closing_tablet.cs" />
+     <Compile Include="Assets\Buttons_scripts\detailed_settings_button.cs" />
      <Compile Include="Assets\clock_counting_time.cs" />
      <Compile Include="Assets\play_last_animation.cs" />
+     <Compile Include="Assets\Buttons_scripts\set_text_from_slider.cs" />
      <Compile Include="Assets\grandma_moving.cs" />
+     <Compile Include="Assets\Buttons_scripts\resume_button_script.cs" />
+     <Compile Include="Assets\Buttons_scripts\cursor_on_button.cs" />
+     <Compile Include="Assets\Buttons_scripts\apply_btn_script.cs" />
+     <Compile Include="Assets\play_audio_script.cs" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
@@ -57,6 +72,7 @@
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF SSD.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader" />
      <None Include="Assets\Materials\3d_text_shader.shader" />
+     <None Include="Assets\Settings and Info\Nights.txt" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface.shader" />
      <None Include="Assets\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
@@ -67,6 +83,7 @@
      <None Include="Assets\TextMesh Pro\Shaders\TMPro_Surface.cginc" />
      <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
+     <None Include="Assets\Settings and Info\Settings.txt" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Mobile.shader" />
      <None Include="Assets\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />

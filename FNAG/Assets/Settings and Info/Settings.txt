@@ -1,0 +1,10 @@
+volume:100
+speaker_mode:Mono
+language:English
+mouse_sensitivity:5
+field_of_view:60
+resolution:2560x1440
+fullscreen_mode:Fullscreen
+vsync:On
+shadows:Hard
+night:1

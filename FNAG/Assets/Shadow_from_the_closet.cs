@@ -16,7 +16,7 @@ public class Shadow_from_the_closet : MonoBehaviour
 
     void Update()
     {
-        if (!pm.Is_game_end)
+        if (!pm.Is_game_end && !pm.is_game_paused)
         {
             if (pm.lamp.gameObject.activeSelf)
             {

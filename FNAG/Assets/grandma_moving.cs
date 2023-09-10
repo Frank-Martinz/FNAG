@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class grandma_moving : MonoBehaviour
 {
+    // объекты
     public GameObject grandma;
     public GameObject player;
     public player_movement pl;
@@ -18,6 +19,7 @@ public class grandma_moving : MonoBehaviour
     public AudioClip screamer;
     public GameObject danger_zone;
     public Light lamp;
+    public Camera surcam;
 
     // сторонние скрипты
     public player_movement pm;
@@ -27,9 +29,9 @@ public class grandma_moving : MonoBehaviour
     // переменные 
     int stage = 0;
     public bool grandma_in_room = false;
-    float i = 25f;
-    int from_time = 15;
-    int to_time = 45;
+    public float i = 25f;
+    public int from_time = 15;
+    public int to_time = 45;
     float danger_zone_moving = 0f;
     
     Dictionary<int, Vector3> stages = new Dictionary<int, Vector3>()
@@ -48,8 +50,17 @@ public class grandma_moving : MonoBehaviour
     }
     void Update()
     {
-        if (i <= 0 && !pm.Is_game_end)
+        if (danger_zone_moving != 0f && !pm.Is_game_end)
         {
+            danger_zone.transform.localScale += new Vector3(0.1f, 0, 0);
+            if (danger_zone.transform.localScale.x >= 28f)
+            {
+                danger_zone_moving = 0f;
+            }
+        }
+        if (i <= 0 && !pm.Is_game_end && !pm.is_game_paused)
+        {
+            stage++;
             if (stage >= 4 && !audios.isPlaying && !pm.Is_game_end) 
             {
                 audios.clip = openning_door;
@@ -61,24 +72,15 @@ public class grandma_moving : MonoBehaviour
             else
             {
                 i = GetRandomNum();
-                stage++;
+                if (pm.in_camera)
+                {
+                    ShowWhiteNoice();
+                    Invoke("HideWhiteNoice", 1.5f);
+                }
                 grandma.transform.position = stages[stage]; 
-            }
-            if (pm.in_camera)
-            {
-                ShowWhiteNoice();
-                Invoke("HideWhiteNoice", 1.5f);
-            }
+            }    
         }
-        if (danger_zone_moving != 0f && !pm.Is_game_end)
-        {
-            danger_zone.transform.localScale += new Vector3(0.05f, 0, 0);
-            if (danger_zone.transform.localScale.x >= 28f)
-            {
-                danger_zone_moving = 0f;
-            }
-        }
-        i -= Time.deltaTime;
+        if (!pm.is_game_paused) {i -= Time.deltaTime;}
     }
     public int GetRandomNum()
     {
@@ -88,6 +90,7 @@ public class grandma_moving : MonoBehaviour
 
     void ShowWhiteNoice()
     {
+        if (!surcam.isActiveAndEnabled) {return;}
         white_noice.color = new Color(255, 255, 255, 0.85f);
         oct_white_noise.StartAnimation();
     }
@@ -128,6 +131,7 @@ public class grandma_moving : MonoBehaviour
     }
     void MakeDangerZoneLess()
     {
+        danger_zone_moving = 0f;
         danger_zone.transform.localScale = new Vector3(0, 0.5f, 16f);
     }
     public void MakeAScrimmer()
@@ -136,11 +140,19 @@ public class grandma_moving : MonoBehaviour
         {
             pm.FinishGame();
             audios.clip = screamer;
-            audios.Play();
-            cam.localEulerAngles = new Vector3(0, 0, 0);
+            player.transform.localEulerAngles = new Vector3(0, 0, 0);
+            cam.localEulerAngles = new Vector3(-10, 0, 0);
             player.transform.position = new Vector3(0, 1, 0);
             grandma.transform.position = new Vector3(0, 1, 2f);
+            audios.Play();
         }
         
+    }
+    
+    public void SetDif(float _i, int ft, int tt)
+    {
+        i = _i;
+        from_time = ft;
+        to_time = tt; 
     }
 }
